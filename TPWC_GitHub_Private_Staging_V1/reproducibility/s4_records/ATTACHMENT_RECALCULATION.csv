@@ -1,0 +1,4 @@
+state,stored_key,completed_moves,beta0,beta1,beta2,SAFE,n0,n1,n2,rank_d1,rank_d2,state_sha256
+Y0,"wit_states[0,:]",0,1,0,1,0,8,12,6,7,5,28c660b4c34db09286b8e592903a132c727f04c3760a84da64f0e22408ec7ab6
+Y1,"wit_states[1,:]",1,1,0,0,1,8,12,5,7,5,f4ded876e53ebabbe9cd90f09a3f7e29681695bde257c3ce8d7f2cf0bef4fbff
+Y2,"wit_states[2,:]",2,1,0,0,1,8,12,5,7,5,f6beccf09260fd85e5b4a738fb793ca74b0ee80520c9ed7b5cb558fc4e894ab3

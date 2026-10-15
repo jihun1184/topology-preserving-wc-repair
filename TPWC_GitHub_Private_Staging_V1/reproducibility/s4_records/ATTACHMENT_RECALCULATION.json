@@ -1,0 +1,126 @@
+{
+  "case": "BraTS2021_00110",
+  "system": "C00-F1",
+  "grid": "G26",
+  "block": "k2xy@106,111,162",
+  "coordinate_order": "z,y,x",
+  "crop_lo": [
+    96,
+    101,
+    152
+  ],
+  "crop_shape": [
+    21,
+    22,
+    22
+  ],
+  "window_voxels": 180,
+  "bundle_file": "FIGURE_DATA\\shard_1\\FIG\\BraTS2021_00110__k2xy_106_111_162\\C00-F1__G26.npz",
+  "bundle_sha256": "7d82c54813bc872d2270629fddb228e9519f985142ac801261ed9986e17981ec",
+  "ctx_file": "FIGURE_DATA\\shard_1\\FIG\\BraTS2021_00110__k2xy_106_111_162\\ctx.npz",
+  "ctx_sha256": "0132e9024021028e3e5d79b610bd6f4b8a1335bf994466e461625651cf810b82",
+  "coords_sha256": "96c2d0e837edd22862cefa5f4e2366f69cca391a40de28cc12da1578c78bd287",
+  "state_hash_encoding": "C-order contiguous uint8 bytes, 180 entries in stored coords order; no header",
+  "matrix_code": "code/close_evidence.py::cells_from_neighbours/columns/rank_f2",
+  "matrix_code_sha256": "957d7f51a7f6130f01a05779805402b497704ee6ac78647075350448b91592e2",
+  "frozen_probe": "MANUSCRIPT\\PHASE_S\\code\\attach_along_witness.py::attach_betti",
+  "frozen_probe_sha256": "06bbc4253e33cab77ee854f5a3f3991f750df648a1ef5fb496ca441ca296e2ef",
+  "stored_states_match_replay": true,
+  "existing_probe_agrees": true,
+  "boundary_squared_zero": true,
+  "states": [
+    {
+      "state": "Y0",
+      "bundle_array": "wit_states[0,:]",
+      "completed_moves": 0,
+      "last_move": "initial",
+      "target_zyx": [
+        106,
+        111,
+        162
+      ],
+      "beta": [
+        1,
+        0,
+        1
+      ],
+      "safe": false,
+      "cells": [
+        8,
+        12,
+        6
+      ],
+      "boundary_ranks_f2": [
+        7,
+        5
+      ],
+      "witness_state_sha256": "28c660b4c34db09286b8e592903a132c727f04c3760a84da64f0e22408ec7ab6",
+      "crop_sha256": "60fa63e20645531ef893ee3db69c2a7b364aadb49a893fc8bba72d03c0a361f6",
+      "neighbourhood_sha256": "91cc55c4e4ad03e541010538a42b8c32f9a37c272dc1ee1eb68c6dd4661c5505",
+      "occupied_neighbour_count": 25,
+      "target_occupancy": 0
+    },
+    {
+      "state": "Y1",
+      "bundle_array": "wit_states[1,:]",
+      "completed_moves": 1,
+      "last_move": "REM 1",
+      "target_zyx": [
+        106,
+        111,
+        162
+      ],
+      "beta": [
+        1,
+        0,
+        0
+      ],
+      "safe": true,
+      "cells": [
+        8,
+        12,
+        5
+      ],
+      "boundary_ranks_f2": [
+        7,
+        5
+      ],
+      "witness_state_sha256": "f4ded876e53ebabbe9cd90f09a3f7e29681695bde257c3ce8d7f2cf0bef4fbff",
+      "crop_sha256": "81e43e0e3fda6ca070486fec94e5fb960b9b4fc087db47f4c61c62514866a7ae",
+      "neighbourhood_sha256": "a5011a2890db76eb88387d2e5354215360e12d8ed290b651ac1ba355330f82af",
+      "occupied_neighbour_count": 24,
+      "target_occupancy": 0
+    },
+    {
+      "state": "Y2",
+      "bundle_array": "wit_states[2,:]",
+      "completed_moves": 2,
+      "last_move": "REM 2",
+      "target_zyx": [
+        106,
+        111,
+        162
+      ],
+      "beta": [
+        1,
+        0,
+        0
+      ],
+      "safe": true,
+      "cells": [
+        8,
+        12,
+        5
+      ],
+      "boundary_ranks_f2": [
+        7,
+        5
+      ],
+      "witness_state_sha256": "f6beccf09260fd85e5b4a738fb793ca74b0ee80520c9ed7b5cb558fc4e894ab3",
+      "crop_sha256": "a6e383d8f9b2c98812436ac2f84f5245c8ea8106e999eef83088819cd16471d1",
+      "neighbourhood_sha256": "b61d0cc839dc63ecc256b4faece3cd3bac2bedf304cbae30fa2d1e2530a69a09",
+      "occupied_neighbour_count": 23,
+      "target_occupancy": 0
+    }
+  ]
+}
