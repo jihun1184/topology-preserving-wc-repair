@@ -1,11 +1,32 @@
-# Permission and release status
+# Public scope, rights and license decisions
 
-Public release is not authorised by this package. The authors must approve the exact included files and data records, establish software ownership/contributor permission and choose code/data terms before uploading.
+## Current status
 
-The package contains two verification scripts and one frozen code-identity source. It excludes the ICEIC-related upstream modules, incomplete search stack, gate census and figure sources. These exclusions reduce the current approval scope; they do not establish rights to the files retained.
+This repository is Public. The maintainer has reported that the author approval needed to publish the current minimal recount and SAFE-consistent S4 scope is complete. The earlier internal-review statements that publication had not been authorized are superseded for this scope.
 
-No executed contributor agreement, institutional ownership decision, current software licence or ICEIC publication agreement covering these files was found in the reviewed candidate/lineage records. Manuscript author order, CRediT and Funding=None do not by themselves establish software ownership. No pre-existing repository licence is inherited.
+This report does not identify the approving parties, a particular institutional decision, an executed contributor agreement, copyright ownership allocations or a chosen code/data license. Those details are not inferred from repository visibility, manuscript authorship, CRediT, funding or file hashes.
 
-Confirm whether retained code is individually or jointly owned, whether institutional programme-work/IP procedures apply, whether third-party code was adapted, and whether the proposed terms cover the non-image records separately. Choose a code licence only after these questions are resolved.
+## Scope of the public materials
 
-Providing a ZIP privately for review, a public GitHub repository, an embargoed Zenodo record and a publicly licensed archive are different release decisions. None has been executed here. The final manuscript Code Availability must describe the approved method and actual identifiers; no final statement is drafted now.
+| Unit | Current provision | License decision |
+| --- | --- | --- |
+| Minimal recount, package-integrity and S4 verification scripts; frozen code-identity source | Included in the 22-file reproducibility payload; no new scientific code changes | Confirm exact files, rights holders and code license |
+| Non-image production/reuse CSV and S4 ledger, Betti, path and hash records | Included; recorded values unchanged | Confirm separate generated-data terms and attribution |
+| Public documentation and metadata | Included; documentation updated for public status | Confirm whether code or separate documentation terms apply |
+| Full ESM_4.zip, upstream/full-search stack, RAW masks, starting-state inputs and witness/context/replay NPZ | Not included | Any future provision requires a separate scope and rights decision |
+
+The full search, RAW-to-X_T reconstruction and voxel replay are unavailable here. Running the ledger-based S4 verifier does not establish any of those capabilities. No access-on-request service is promised.
+
+## License candidates — proposals only
+
+- **Code: MIT** is the first candidate for concise permissive reuse with retention of copyright and license notices. [MIT text](https://choosealicense.com/licenses/mit/)
+- **Code alternative: Apache-2.0** if the rights holders prefer an explicit contributor patent grant and its associated conditions. [Authoritative text](https://www.apache.org/licenses/LICENSE-2.0)
+- **Generated non-image records: CC BY 4.0** is a candidate if the relevant rights can be licensed and source-data obligations permit it. Attribution must identify the approved creators/source and changes. It does not grant rights in absent BraTS images or NPZ arrays. [Official terms](https://creativecommons.org/licenses/by/4.0/)
+
+No candidate is adopted by this document. No LICENSE file, SPDX declaration or license badge is added. Author approval of public access is recorded separately from approval of a reuse license.
+
+## Release and availability
+
+v1.0.0 is pending final review. Public access has occurred; a GitHub Release, Zenodo deposit, DOI and release date are not established by this update. The repository URL is https://github.com/jihun1184/topology-preserving-wc-repair.
+
+Before release, confirm license choices and their file coverage, review the precise tagged commit and assets, and resolve the line-ending transport issue described in the root README. Do not represent an automatically generated GitHub source archive as the original verified payload without testing its exact bytes. See [the final review checklist](../PRIVATE_RELEASE_CHECKLIST.md).
