@@ -1,0 +1,5 @@
+# Validated Windows / CPython 3.12 environment; no binary wheels are redistributed.
+numpy==2.3.5
+nibabel==5.4.2
+packaging==26.3
+typing_extensions==4.16.0

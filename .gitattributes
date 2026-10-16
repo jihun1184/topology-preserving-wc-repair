@@ -1,1 +1,3 @@
 /reproducibility/** -text
+/full_search/frozen/** -text
+* -export-subst

@@ -1,28 +1,6 @@
-# Generated output
-**/verification_output/
-**/recount_output/
-__pycache__/
-*.py[cod]
 .venv/
-venv/
-.env
-.env.*
-
-# Exclude unapproved image/voxel or archive inputs
-*.nii
-*.nii.gz
-*.nrrd
-*.dcm
-*.npz
-*.npy
-*.h5
-*.hdf5
-*.pt
-*.pth
-*.ckpt
-
-# Editor/system files
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
+__pycache__/
+*.pyc
+outputs/
+.private_work/
+verification_output/

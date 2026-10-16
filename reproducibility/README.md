@@ -1,27 +1,30 @@
-# Minimal R4J reproducibility candidate
+# Recorded-result and S4 verification subpackage
 
-Status: the selected minimal recount and SAFE-consistent S4 materials are now in a public GitHub repository. The maintainer reports that the author approval required for this public scope is complete. No specific code/data license has been confirmed for this documentation update. This is not a complete search rerun package.
+This subdirectory verifies supplied non-image records; it does not execute a
+search. Version1.0.0's separate `../full_search/` adapter and root README describe
+the new core-search capability and externally supplied input requirements.
 
-The internal validation status describes the preserved source package. Git line-ending conversion prevents a generic checkout from inheriting its byte-level PASS status. Read the repository-root README transport-integrity note before running the checks; v1.0.0 requires a verified byte-preserving delivery artifact.
+Run with normal Python (not `python -O`), from this directory:
 
-Run from the extracted core_code directory with normal Python 3 (do not use python -O):
+```text
+python verify_package.py
+python verification/reaggregate_r1_2.py --root inputs --out verification_output
+python s4_records/verify_s4_records.py
+```
 
-    python verify_package.py
-    python verification/reaggregate_r1_2.py --root inputs --out verification_output
-    python s4_records/verify_s4_records.py
+Default checks use the standard library. They recount 19,040 stored outcomes
+and recompute boundary ranks/Betti/SAFE for the three supplied S4 cell ledgers.
+They do not rerun those 19,040 searches or extract the ledgers from source NPZ.
+The original absent-NPZ checks remain SKIPPED. The optional historical project
+mode and `close_evidence_FROZEN.py` need the historical project and are not the
+portable core-search command.
 
-All three scripts exist in this package. The two scientific verification commands in their default modes require only the Python standard library. verification_output is a generated directory, not a shipped input or missing script.
+Original scientific code/record bytes are preserved. FILE_SHA256.json and
+SHA256SUMS.txt exclude themselves and update only README/rights-document hashes;
+the other18 digests are unchanged. The release-level manifest verifies all files.
+The historical DEPENDENCIES_ICEIC27.md is retained as provenance for this original
+subpackage, not as the version1.0.0 root capability statement.
 
-inputs/PRODUCTION/shard_0 and shard_1 each contain BLOCKS.csv and PATHS.csv. inputs/FINAL contains REUSE_MERGE_LOG.csv and P2AB_B1_MASTER_SHA256.txt. They are unchanged non-image records from the existing OR4. There is no results/ directory in this minimal package.
-
-FILE_SHA256.json and SHA256SUMS.txt identify the shipped files. verify_package.py checks FILE_SHA256.json with standard Python, without requiring sha256sum on Windows. The two package hash lists exclude themselves to avoid self-referential hashes. This public documentation update changes only the README and rights-document entries; the other 18 entries retain their preserved digests. No new public release archive hash is asserted.
-
-The re-aggregation reads the 19,040 recorded result rows and checks tables against the frozen stored outcomes. It does not independently reproduce the searches or re-evaluate the recorded SAFE flags. It explicitly reports the unavailable witness-NPZ checks as SKIPPED.
-
-The S4 verifier computes boundary ranks and Betti vectors from the preserved cell ledger and checks each stored SAFE flag against the recomputed condition beta == [1,0,0]. This verifies the three fixed-voxel attachment results, not a new witness search. Source NPZ, original RAW masks and starting-state generation are absent. The verifier's optional --project-root mode needs the original source project and NumPy and is not a self-contained public-package command.
-
-s4_records/close_evidence_FROZEN.py is provided solely as the byte-identical source identified by the S4 digest. The verifier hashes it; it does not execute it. Its historical build command and project-specific paths require the original project and are not instructions to run this package.
-
-Search modules, SAFE exhaustive-check sources/scripts, split regeneration, Note1 finite-check scripts and figure-rendering sources are excluded from this minimal candidate. They remain preserved in the earlier candidate/OR4. No run_reaggregate.sh, regenerate_split.py, note1_checks/ or figure_sources/ execution is advertised here.
-
-Read DEPENDENCIES_ICEIC27.md for unavailable dependencies and RIGHTS_AND_RELEASE.md for the current public scope and license candidates. GitHub publication has occurred. No particular software/data license, Zenodo deposit, DOI or v1.0.0 release is established by this update. The manuscript remains unchanged; any future availability wording must distinguish public recorded-result verification from unavailable full search, RAW-to-X_T generation and voxel replay.
+Code/docs use MIT; author-generated non-image records use CC BY4.0 under exact
+root LICENSE_SCOPE.json. Provider masks/NPZ are absent and not relicensed. See
+root DATA_ACCESS.md, DATA_LICENSE.md and THIRD_PARTY_NOTICES.md.

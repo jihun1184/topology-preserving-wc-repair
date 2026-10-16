@@ -1,0 +1,35 @@
+{
+  "case_id": "BraTS2021_00110",
+  "block": "k2xy@106,111,162",
+  "raw_shape_zyx": [
+    155,
+    240,
+    240
+  ],
+  "raw_mask_sha256": "8571e2efb9581ab0de6b407db9009d627ccbe927f845c768197ccd262c4bb2cd",
+  "raw_foreground_voxels": 90740,
+  "original_segmentation_file_sha256": "9dde5c40e32df29acbc2cfd9fef367cc7dea71ad34054cb156e524167ee0def0",
+  "raw_wt_file_sha256": "9ae059f0171623b0848f2caa5d3ea727078e151627bf460d1825c99f693e36e9",
+  "xt_mask_sha256": "f9884a9e2c034a6ddc2fe024bde4fb449cdf4921e08bc1d2463137071f79808a",
+  "gate_table_sha256": "59407fef2acb5b06059a13f19092047d172bbddd49bc85f811d822293b4c4830",
+  "mask_hash_encoding": "SHA256(prefix ICEIC2027_P4_MASK_R0 + NUL, shape 3 little-endian uint64, C-order uint8 ZYX bytes)",
+  "nmax": 2000000,
+  "systems": [
+    [
+      "C00-F1",
+      "G26"
+    ],
+    [
+      "C00-F2",
+      "G26"
+    ],
+    [
+      "C01P-F2",
+      "G26"
+    ],
+    [
+      "C00-F1",
+      "G14"
+    ]
+  ]
+}

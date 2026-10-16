@@ -1,52 +1,123 @@
-# Topology-Preserving Well-Composed Repair — Reproducibility Materials
+# Topology-preserving well-composed repair: version 1.0.0
 
-> **Public research repository.**
->
-> This repository is a curated copy of the internally verified *minimal recount + SAFE-consistent S4* candidate supplied for the JMIV manuscript. The repository is publicly accessible, and the maintainer reports that the author approval needed for this public scope is complete. It is not the full search implementation. No specific code or data license has been confirmed in the materials reviewed for this documentation update.
+Research software for bounded repair reachability under SAFE single-voxel moves.
+This version adds preserved search sources and an executable single-case
+reproduction adapter to the earlier recorded-results and S4 ledger package.
 
-## Scope
+| Operation | Supported scope |
+|---|---|
+| Integrity checking and aggregation | The supplied 19,040 recorded result rows; not 19,040 new search runs |
+| S4 calculations | Boundary ranks, Betti vectors and SAFE flags from three non-image cell ledgers |
+| Actual core search | BraTS2021_00110: C00-F1/G26, C00-F2/G26, C01P-F2/G26 and C00-F1/G14, using your authorized input |
+| Input reconstruction | Replay frozen ordered Run A edits on that RAW WT mask to reconstruct XT |
+| Full-cohort stages/search | Original sources/records preserved; the adapter does not rerun 876-case stages or all 19,040 searches |
 
-| Reproduced calculation | Supported by this repository? |
-| --- | --- |
-| Verify supplied files against recorded SHA-256 digests | Yes |
-| Recount tabulated outcomes from 19,040 **recorded** rows | Yes |
-| Recompute boundary ranks, Betti vectors, and SAFE flags for the three supplied S4 ledgers | Yes |
-| Rerun the full bounded search or reconstruct RAW-to-`X_T` starting states | **No** |
-| Rerun voxel/NPZ witness replay | **No** — source NPZ arrays are not included |
+No BraTS images, segmentation masks, RAW masks, voxel-context NPZ or private
+cache files are distributed. Expected records and actually executed searches
+are distinguished.
 
-No BraTS MRI, original segmentation masks, or witness/replay NPZ files are included.
+## Setup
 
-## Quick start
+Use CPython 3.12. Validated: Python 3.12.14 on Windows 11; other platforms have
+not been tested. Create a private environment:
 
-The commands below describe the minimal package checks. Before interpreting their results, read the transport-integrity note below.
+```text
+python -m venv /private/jmiv-venv
+/private/jmiv-venv/bin/python -m pip install -r requirements-lock.txt
+```
 
-Install Python 3.9 or later. No external package is required for the following default checks. Run with **normal Python**, not `python -O`:
+On Windows use `C:/private/jmiv-venv/Scripts/python.exe` instead of `bin/python`.
+The lock specifies NumPy 2.3.5, nibabel 5.4.2 and validated transitive packages.
+Dependencies are not bundled. Run normal Python, not `python -O`.
 
-```bash
+In **every** command below, replace `python` with that environment's full Python
+path (`/private/jmiv-venv/bin/python` or
+`C:/private/jmiv-venv/Scripts/python.exe`). Creating/installing a venv does not
+activate it; using the explicit interpreter avoids running a system Python.
+
+## Verify non-image package without BraTS data
+
+From the extracted release root:
+
+```text
+python verify_release.py
 cd reproducibility
 python verify_package.py
 python verification/reaggregate_r1_2.py --root inputs --out verification_output
 python s4_records/verify_s4_records.py
 ```
 
-These commands verify supplied records; they **do not regenerate the search or infer SAFE flags from original voxel data**. For details and dependencies, read [`reproducibility/README.md`](reproducibility/README.md) and [`reproducibility/DEPENDENCIES_ICEIC27.md`](reproducibility/DEPENDENCIES_ICEIC27.md).
+The three existing checks do not run a search or derive cell ledgers from masks.
+Original scientific code/data bytes are preserved. Revised rights documentation
+is reflected in the package's two hash lists.
 
-## Provenance and integrity
+## Execute core search with your own authorized input
 
-The initial 22-file `reproducibility/` payload was selected from `R4K_INTERNAL_REVIEW_CORRECTED_V1.zip` → `r4k_review/ESM_4.zip` → `or4_candidate/minimal_recount/core_code/`.
+Obtain BraTS 2021 Task 1 training segmentation `BraTS2021_00110` through the
+provider's access process. See [DATA_ACCESS.md](DATA_ACCESS.md). The adapter
+uses labels1,2,4 for whole tumour and transposes NIfTI XYZ axes to ZYX. It rejects
+a mask whose shape and canonical array digest differ from the frozen contract.
+Equivalent recompressed NIfTI containers are accepted.
 
-Scientific code and recorded calculation inputs/results are unchanged by this documentation update. The two package hash lists are updated only for the revised `README.md` and `RIGHTS_AND_RELEASE.md`; their other 18 recorded digests are preserved. Earlier frozen packages remain unchanged.
+From the extracted release root, with output/cache directories **outside** it:
 
-### Transport-integrity limitation before v1.0.0
+```text
+python -B full_search/reproduce_core.py --segmentation /private/BraTS2021_00110_seg.nii.gz --out /private/jmiv-results --work-dir /private/jmiv-cache
+```
 
-At the initial public commit `6099c69623567a22c2e14a85683082e1e2361a35`, 17 of the 20 Git-blob digests differ from the preserved package manifest because the original payload contains mixed LF/CRLF line endings. A Windows checkout with `core.autocrlf=true` instead mismatches three entries, including `close_evidence_FROZEN.py`; the package and S4 checks fail in that checkout. A default clone or GitHub-generated source archive must therefore not be described as the byte-identical verified payload.
+Alternatively provide an authorized binary WT mask:
 
-This documentation update does not rewrite code/data or replace their scientific digests. Before publishing v1.0.0, resolve byte-preserving delivery of the approved payload and verify the exact download artifact. See the [release checklist](PRIVATE_RELEASE_CHECKLIST.md).
+```text
+python -B full_search/reproduce_core.py --raw-wt /private/BraTS2021_00110_WT_RAW.nii.gz --out /private/jmiv-results --work-dir /private/jmiv-cache
+```
 
-## Access and licensing
+Use a new `--out` each time; completed results are not overwritten. The WT route
+was tested with the frozen input in a newly installed isolated environment.
+The multiclass option implements the specified label union; an independently
+downloaded original multiclass segmentation was not obtained in this validation.
+Neither option downloads, uploads or redistributes the provider data.
 
-The repository is **Public**. Author approval for the currently published scope has been reported by the maintainer. This does not identify a particular license, copyright holder, contributor agreement or institutional determination. No code/data license is applied by this update.
+Expected output (states include root and newly discovered depth-L states):
 
-Separate code and generated-data license choices remain to be confirmed. Additional material, including the full ESM_4.zip, is outside the current scope unless separately approved. A v1.0.0 release will be considered only after final review; no DOI or release date is asserted.
+```text
+C00-F1 G26 PURE_FOUND 52137 1|41|881|13361|37853
+C00-F2 G26 NO_PURE_DEPTH_LIMITED 24528 1|18|149|759|2678|6974|13949
+C01P-F2 G26 NO_PURE_DEPTH_LIMITED 24528 1|18|149|759|2678|6974|13949
+C00-F1 G14 PURE_FOUND 3293 1|13|112|775|2392
+PASS: all four original-engine results and witnesses match the frozen expected records
+```
 
-See [`reproducibility/RIGHTS_AND_RELEASE.md`](reproducibility/RIGHTS_AND_RELEASE.md).
+The preserved engine uses Nmax=2,000,000, G26=(R2,L6), G14=(R1,L4). Both F1 paths
+have length4. F2 is completed bounded absence through depth6, not unbounded
+exhaustion; the cap is not reached. Deterministic columns and witness/path-rule
+flags must match `full_search/expected_results.json`. Timings and cumulative gate
+audit counts are excluded from exact equality. Failure exits nonzero.
+
+## Scientific and provenance scope
+
+`full_search/frozen/` contains byte-identical historical sources/records checked
+against `FROZEN_SOURCE_SHA256.json`. BFS, geometry, SAFE, admissible rules,
+witness replay and goals are unchanged. `reproduce_core.py` is a new input/release
+adapter, not a new search algorithm. It regenerates the pinned SAFE table using
+the original classifier and requires SHA-256
+`59407fef2acb5b06059a13f19092047d172bbddd49bc85f811d822293b4c4830`.
+
+The adapter uses a **selected-case provenance profile**. It validates frozen
+files, the supplied RAW and reconstructed XT; it does not call the historical
+cohort bootstrap requiring 3,512 P4 files. Do not describe it as verifying or
+rerunning that whole archive. The original bootstrap is preserved in the sources.
+
+XT is reconstructed with original `RunA.reconstruct`, a privately materialized WT
+NIfTI and frozen ordered edits, followed by an exact array-digest check. Stage1/2
+are not rerun to generate those records anew. The private mask cache is outside
+the source tree and absent from release assets.
+
+## Licensing and version identification
+
+Code/software documentation: [MIT](LICENSE). Author-generated non-image records:
+[CC BY 4.0](DATA_LICENSE.md); exact coverage in `LICENSE_SCOPE.json`. External
+data/dependencies retain their terms. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+Use the versioned asset and SHA256SUMS/RELEASE_PROVENANCE.json to identify exact
+bytes, tag and commit. Before final author approval this tree/local tag is only
+a candidate; a prospective Release URL does not establish publication.

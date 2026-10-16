@@ -1,0 +1,107 @@
+{
+ "cases": 876,
+ "status": {
+  "SOLVED": 424,
+  "TERMINAL_STUCK": 452
+ },
+ "n_cases_with_rplus_edits": 866,
+ "n_p1_edits": 99825,
+ "n_rplus_edits": 106893,
+ "accepted_edit_verdicts": {
+  "SAFE": 99825
+ },
+ "accepted_edit_classes": {
+  "contractible": 99825
+ },
+ "n_betti_changing_accepted_edits": 0,
+ "ctrl_equals_stored_rplus": {
+  "1": 876
+ },
+ "total_init_crit": 87433,
+ "total_final_crit": 3325,
+ "terminal_stuck_cases": 452,
+ "terminal_stuck_blocks": 3325,
+ "stuck_by_k": {
+  "2": 2560,
+  "3": 765
+ },
+ "stuck_initial_critical": 2247,
+ "stuck_category": {
+  "RAW_SHELL_CLOSED": 794,
+  "OPEN": 2259,
+  "FINAL_SHELL_CLOSED": 272
+ },
+ "stuck_unlock_r1": {
+  "PERMANENT_SHELL": 1066,
+  "NOT_UNLOCKABLE_R1": 831,
+  "WINDOW_TOO_LARGE": 1086,
+  "UNLOCKABLE": 342
+ },
+ "stuck_removal_safe_resolving": {
+  "RAW_SHELL_CLOSED|rem_safe>0=False": 670,
+  "OPEN|rem_safe>0=False": 923,
+  "OPEN|rem_safe>0=True": 1336,
+  "FINAL_SHELL_CLOSED|rem_safe>0=True": 189,
+  "RAW_SHELL_CLOSED|rem_safe>0=True": 124,
+  "FINAL_SHELL_CLOSED|rem_safe>0=False": 83
+ },
+ "cases_with_raw_shell_closed": 234,
+ "raw_shell_closed_blocks": 794,
+ "edit_inflation_global_all": 0.9338778030366816,
+ "edit_inflation_global_solved": 0.9882754526565747,
+ "deferred": {
+  "events": 6101,
+  "blocks": 3654,
+  "reactivation_events": 2776,
+  "reactivated_blocks": 2184,
+  "released_blocks": 303,
+  "resolved_by_other": 26,
+  "cases_with_deferral": 464
+ },
+ "new_crit": {
+  "p1_total": 27162,
+  "p1_edits_creating": 21897,
+  "rplus_total": 35361,
+  "rplus_edits_creating": 26635
+ },
+ "p1_edit_choice": {
+  "equal_to_rplus_voxel": 85011,
+  "differs": 14814
+ },
+ "unsafe_states": 14263,
+ "stress_states": 2413,
+ "stress_fate_any": {
+  "A": 542,
+  "B": 297,
+  "C": 1574
+ },
+ "stress_fate_all": {
+  "A": 542,
+  "B": 292,
+  "C": 1563,
+  "MIXED": 16
+ },
+ "stress_block_level": {
+  "A": 582,
+  "B": 306,
+  "C": 1672
+ },
+ "stress_n_cand_hist": {
+  "1": 2273,
+  "2": 133,
+  "3": 7
+ },
+ "stress_voxel_added_in_p1": 260,
+ "stress_met_same_local_state": 1245,
+ "unsafe_fate_any": {
+  "B": 9067,
+  "C": 2113,
+  "A": 3083
+ },
+ "nonstress_fate_any": {
+  "B": 8770,
+  "C": 539,
+  "A": 2541
+ },
+ "errors": []
+}

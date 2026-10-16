@@ -1,0 +1,4 @@
+{"n_max": 1000000,
+ "tiers": {"A": {"R": 1, "L": 4}, "B": {"R": 2, "L": 6}, "C": {"R": 3, "L": 8}},
+ "routing": {"A": {"next": "B", "when": ["NO_PATH_EXHAUSTIVE", "B_RESOLVED_WITH_NEW_CRIT", "CAP_EXCEEDED"]},
+             "B": {"next": "C", "when": ["NO_PATH_EXHAUSTIVE", "B_RESOLVED_WITH_NEW_CRIT"]}}}
